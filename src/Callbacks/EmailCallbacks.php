@@ -74,8 +74,12 @@ class EmailCallbacks extends BenchmarkCallbacks {
                 $body .= $position.'. Results for ' . $competitor->getName() . ' time: ' . $competitor->getTestTime() . ' ms ' . $diffTime.' ms '.$after . ' than the subject. <br>';
             }
         }
+        $results = false;
+        if($ranking->getSubjectFastestRatio() > 2)
+            $results = $this->_email->send($from,$to,$subject,$body,'',TRUE);
         
-        return $this->_email->send($from,$to,$subject,$body,'',TRUE);
+        return $results;
+        
         
     }
 }
