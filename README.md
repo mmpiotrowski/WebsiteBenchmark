@@ -12,7 +12,8 @@ PHP Website Benchmark - console tool for comprasion page loading time
 - composer install
 - chmod +x benchmark
 
-## Before use check configure file config (config/config.ini):
+## Before use:
+- check configure file config (config/config.ini)
 - complete email section
 
 ## Use example:
