@@ -7,7 +7,7 @@ PHP Website Benchmark - console tool for comprasion page loading time
 
 ## How to install:
 - clone or download repo
-- use composer install dependencies (PHPMailer,Config_Lite)
+- use composer to install dependencies (PHPMailer,Config_Lite)
 - check benchmark shell script is executable
 
 ## Before use check configure file config (config/config.ini):
