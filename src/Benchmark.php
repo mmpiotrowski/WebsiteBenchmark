@@ -95,9 +95,9 @@ class Benchmark {
      */
     function __construct(Configure $config, $subjectOptions, $competitorsOptions = null) {
         $this->_config = $config;
-        $this->_callbacksRegister = $this->_initCallbacks($config->get('app', 'callbacks'));
+        $this->_callbacksRegister = $this->_initCallbacks($config->get('benchmark', 'callbacks'));
         $this->_ranking = new Ranking();
-        $this->setTimeFormat($this->_config->get('app', 'time_format'));
+        $this->setTimeFormat($this->_config->get('benchmark', 'time_format'));
 
         $this->_benchmarkingClass = __NAMESPACE__ . '\\' . $config->get('benchmark', 'benchmarking_class');
 
@@ -198,7 +198,7 @@ class Benchmark {
     }
 
     /**
-     * Dispatching and fire callback funtions
+     * Dispatching callbacks funtions
      * 
      * @param string $functionName
      * @param mixed $params
