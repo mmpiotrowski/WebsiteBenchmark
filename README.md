@@ -22,7 +22,7 @@ or
 
 or
 
-./benchmark competitor_website_url subject_website_url competitor_website_url competitor2_website_url competitor3_website_url
+./benchmark competitor_website_url subject_website_url competitor_website_url competitor2_website_url 
 
 With default config file, the results will be in:
 - console output
@@ -36,10 +36,6 @@ You can easily modified outputs by changing config callbacks in benchmark sectio
 - Email - email outs
 
 You can also created own callbacks classes see source ConsoleCallbacks or EmailCallbacks source for example
-
-
-## Docs:
-
 
 
 
