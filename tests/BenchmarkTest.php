@@ -41,7 +41,7 @@ class BenchmarkTest extends TestCase {
    public function testDependencies()
     {
         $config = new WebsiteBenchmark\Configure(CONFIG . 'config.ini');
-        $this->assertInstanceOf('WebsiteBenchmark\Benchmark', new WebsiteBenchmark\Benchmark($config,'http://gazeta.pl', 'http://wp.pl,http://interia.pl,http://pclab.pl'));
+        $this->assertInstanceOf('WebsiteBenchmark\Benchmark', new WebsiteBenchmark\Benchmark($config,'gazeta.pl', 'wp.pl,interia.pl,pclab.pl'));
     }
     /**
      * @depends testDependencies
@@ -49,8 +49,8 @@ class BenchmarkTest extends TestCase {
     public function testBenchmarkRunWithoutCallbacks(){
         
         $config = new WebsiteBenchmark\Configure(CONFIG . 'config.ini');
-        $config->set('app', 'callbacks','');
-        $benchmark = new WebsiteBenchmark\Benchmark($config,'http://gazeta.pl', 'http://wp.pl,http://interia.pl,http://pclab.pl');
+        $config->set('benchmark', 'callbacks','');
+        $benchmark = new WebsiteBenchmark\Benchmark($config,'gazeta.pl', 'wp.pl,interia.pl,pclab.pl');
         $this->assertEquals(true,  $benchmark->run());
     }
     /**
@@ -59,8 +59,8 @@ class BenchmarkTest extends TestCase {
     public function testBenchmarkWithLogCallbacks(){
         
         $config = new WebsiteBenchmark\Configure(CONFIG . 'config.ini');
-        $config->set('app', 'callbacks','Log');
-        $benchmark = new WebsiteBenchmark\Benchmark($config,'http://gazeta.pl', 'http://wp.pl,http://interia.pl,http://pclab.pl');
+        $config->set('benchmark', 'callbacks','Log');
+        $benchmark = new WebsiteBenchmark\Benchmark($config,'gazeta.pl', 'wp.pl,interia.pl,pclab.pl');
         $this->assertEquals(true,  $benchmark->run());
         $this->assertEquals(true,  $benchmark->getCallbackStatus('Log.afterTest'));
         $this->assertEquals(true,  $benchmark->getCallbackStatus('Log.afterRun'));
@@ -71,10 +71,10 @@ class BenchmarkTest extends TestCase {
     public function testBenchmarkWithEmailCallbacks(){
         
         $config = new WebsiteBenchmark\Configure(CONFIG . 'config.ini');
-        $config->set('app', 'callbacks','Email');
-        $benchmark = new WebsiteBenchmark\Benchmark($config,'http://gazeta.pl', 'http://wp.pl,http://interia.pl,http,//pclab.pl');
+        $config->set('benchmark', 'callbacks','Email');
+        $benchmark = new WebsiteBenchmark\Benchmark($config,'gazeta.pl', 'wp.pl,interia.pl,http,pclab.pl');
         $this->assertEquals(true,  $benchmark->run());
-        $this->assertEquals(true,  $benchmark->getCallbackStatus('Email.afterRun'));
+        $this->assertEquals(false,  $benchmark->getCallbackStatus('Email.afterRun'));
     }
     
     /**
@@ -83,8 +83,8 @@ class BenchmarkTest extends TestCase {
     public function testBenchmarkWithConsoleCallbacks(){
         
         $config = new WebsiteBenchmark\Configure(CONFIG . 'config.ini');
-        $config->set('app', 'callbacks','Console');
-        $benchmark = new WebsiteBenchmark\Benchmark($config,'http://gazeta.pl', 'http://wp.pl,http://interia.pl,http://pclab.pl');
+        $config->set('benchmark', 'callbacks','Console');
+        $benchmark = new WebsiteBenchmark\Benchmark($config,'gazeta.pl', 'wp.pl,interia.pl,pclab.pl');
         $this->assertEquals(true,  $benchmark->run());
         $this->assertEquals(true,  $benchmark->getCallbackStatus('Console.afterRun'));
     }
@@ -95,8 +95,8 @@ class BenchmarkTest extends TestCase {
     public function testBenchmarkWithFakeCallbacks(){
         
         $config = new WebsiteBenchmark\Configure(CONFIG . 'config.ini');
-        $config->set('app', 'callbacks','Fake');
-        $benchmark = new WebsiteBenchmark\Benchmark($config,'http://gazeta.pl', 'http://wp.pl,http://interia.pl,http://pclab.pl');
+        $config->set('benchmark', 'callbacks','Fake');
+        $benchmark = new WebsiteBenchmark\Benchmark($config,'gazeta.pl', 'wp.pl,interia.pl,pclab.pl');
         $this->assertEquals(true,  $benchmark->run());
         //$this->assertEquals(true,  $benchmark->getCallbackStatus('Console.afterRun'));
     }
