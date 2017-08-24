@@ -15,9 +15,13 @@ PHP Website Benchmark - console tool for comprasion page loading time
 
 ## Use example:
 ./benchmark subject_website_url competitors_website_url
+
 or
+
 ./benchmark subject_website_url competitor_website_url,competitor2_website_url,competitor3_website_url
+
 or
+
 ./benchmark competitor_website_url subject_website_url competitor_website_url competitor2_website_url competitor3_website_url
 
 With default config file, the results will be in:
