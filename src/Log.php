@@ -27,6 +27,7 @@
 namespace WebsiteBenchmark;
 
 use WebsiteBenchmark\BenchmarkException\FileAccessException;
+use WebsiteBenchmark\BenchmarkException\DirectoryNotWritableException;
 
 /**
  * Log class it allows to create and writes the log file
@@ -59,14 +60,21 @@ class Log {
     /**
      * Opens file handle
      * 
-     * @param string $filename
+     * @throws FileAccessException
+     * @throws DirectoryNotWritableException
+     * @param string $fileName
      */
-    public function __construct($filename) {
+    public function __construct($fileName) {
+        
+        $directoryName = dirname($fileName);
+        if(!is_writable ($directoryName)){
+            new DirectoryNotWritableException(null, 0, null, $directoryName);
+        }
      
-        $this->_fileHandle = fopen($filename, $this->_deafultMode);
+        $this->_fileHandle = fopen($fileName, $this->_deafultMode);
 
         if ($this->_fileHandle === false)
-            throw new FileAccessException(null, 0, null, $filename);
+            throw new FileAccessException(null, 0, null, $fileName);
     }
 
     /**
