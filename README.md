@@ -26,7 +26,7 @@ With default config file, the results will be in:
 - send to email (if email config is properly)
 
 ## Notes:
-You can easily modified outputs by change config callbacks in benchmark section:
+You can easily modified outputs by changing config callbacks in benchmark section:
 - Console - console outputs,
 - Logs - logs outps,
 - Email - email outs
