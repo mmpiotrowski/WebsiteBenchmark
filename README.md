@@ -10,6 +10,7 @@ PHP Website Benchmark - console tool for comprasion page loading time
 - unzip master.zip
 - cd WebsiteBenchmark-master
 - composer install
+- chmod +x benchmark
 
 ## Before use check configure file config (config/config.ini):
 - complete email section
